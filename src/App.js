@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useState } from "react"
+import Header from './Components/Header.jsx';
+import InputSection from './Components/InputSection';
+import Counter from './Components/Counter';
+import TasksSection from './Components/TasksSection';
+
+
 
 function App() {
+  const [inputText, setInputText] = useState("")
+  const [listToDoes, setListToDoes] = useState([])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <InputSection  setListToDoes = {setListToDoes} listToDoes={listToDoes} inputText={inputText} setInputText = {setInputText} />
+      <Counter listToDoes={listToDoes}/>
+      <TasksSection  listToDoes={listToDoes}/>
+      
     </div>
   );
 }
