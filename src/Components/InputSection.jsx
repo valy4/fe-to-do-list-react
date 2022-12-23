@@ -1,19 +1,25 @@
+import { useState } from "react";
+
 const InputSection = (props) => {
+  const [inputText, setInputText] = useState("");
   const handleClick = (event) => {
-      // add the task to our list in App
-    if (props.inputText === "") {
+    // add the task to our list in App
+    if (inputText === "") {
     } else {
-      props.setListToDoes([props.inputText, ...props.listToDoes]);
+      props.setListToDos((currToDo) => {
+        const newToDo = { id: currToDo.length, text: inputText };
+        return [...currToDo, newToDo];
+      });
     }
     // reset the input to be empty
-    props.setInputText("");
+    setInputText("");
   };
   return (
     <div>
       <input
         type="text"
-        value={props.inputText}
-        onChange={(event) => props.setInputText(event.target.value)}
+        value={inputText}
+        onChange={(event) => setInputText(event.target.value)}
       ></input>
 
       <button onClick={handleClick}>add</button>
