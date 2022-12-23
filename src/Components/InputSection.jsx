@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const InputSection = (props) => {
   const [inputText, setInputText] = useState("");
+
+
   const handleClick = (event) => {
     // add the task to our list in App
     if (inputText === "") {
@@ -15,14 +17,14 @@ const InputSection = (props) => {
     setInputText("");
   };
   return (
-    <div>
-      <input
+    <div className="place">
+      <input 
+      className="input-place"
         type="text"
         value={inputText}
         onChange={(event) => setInputText(event.target.value)}
       ></input>
-
-      <button onClick={handleClick}>add</button>
+      <button className="btn-one"  onClick={handleClick}>add</button>
     </div>
   );
 };

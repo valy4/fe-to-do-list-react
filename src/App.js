@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <InputSection listToDos={listToDos} setListToDos={setListToDos} />
+      <InputSection setListToDos={setListToDos} />
       <TasksSection listToDos={listToDos} setListToDos={setListToDos} />
     </div>
   );

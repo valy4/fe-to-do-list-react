@@ -5,13 +5,13 @@ const TasksSection = (props) => {
   };
   return (
     <div>
-      <h2> {props.listToDos.length} tasks</h2>
+      <h2 style={{color:"#ffd60a"}}> {props.listToDos.length} tasks</h2>
       <ol>
         {props.listToDos.map((todo) => {
           return (
-            <div>
-              <li key={todo.id}>{todo.text} </li>
-              <button
+            <div className="task-place">
+              <li style={{color:"#ffd60a", fontSize:"30px", width:"30%"}} key={todo.id}>{todo.text} </li>
+              <button className="btn-2"
                 onClick={() => {
                   handleDeleteTask(todo.id);
                 }}
